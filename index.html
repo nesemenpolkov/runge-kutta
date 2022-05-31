@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Runge-Kutta</title>
+    <script src="./scripts/main.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="./css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-grid.css">
+    <script src="./js/bootstrap.js"></script>
+</head>
+<body>
+    <!-- nav -->
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a id="euler" class="nav-link" href="#">Метод Эйлера</a>
+        </li>
+        <li class="nav-item">
+            <a id="eulerKoshi" class="nav-link" href="#">Метод Эйлера-Коши</a>
+        </li>
+        <li class="nav-item">
+            <a id="runge" class="nav-link" href="#">Метод Рунге-Кутта</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">Авторы</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop" aria-controls="staticBackdrop">Настройки</a>
+        </li>
+    </ul>
+    <!-- end of the nav -->
+    <!-- offcanvas element with backdrop -->
+    <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="staticBackdropLabel">Настройки</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close" id="engage"></button>
+        </div>
+        <div class="offcanvas-body">
+            <div>
+                <div class="input-group">
+                    <span class="input-group-text">Введите x и y:</span>
+                    <input type="text" aria-label="First name" class="form-control" id="x" placeholder="x">
+                    <input type="text" aria-label="Last name" class="form-control" id="y" placeholder="y">
+                </div>
+                <br>
+                <div class="input-group">
+                    <span class="input-group-text">Введите шаг:</span>
+                    <input type="text" aria-label="First name" class="form-control" id="h" placeholder="h">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Кто сделал это чудо?</h5>
+                    <!--<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+                </div>
+                <div class="modal-body">
+                    Программу для 12-ой лабораторной работы выполнили крутые парни <strong>Илюша Гришин</strong> и <strong>Серёжа</strong>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of modal -->
+    <!-- end of offcanvas -->
+    <div class="container-fluid ">
+        <div class="border border-5 rounded shadow p-3 mb-5 bg-body rounded" style="margin-left:10rem; margin-right: 10rem;">
+            <template id="no-data-row-template">
+                <tr id="no-data-row">
+                    <td colspan="4" class="text-center">Нажмите на название метода для вычисления!</td>
+                </tr>
+            </template>
+            <template id="data-row-template">
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </template>
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th width="40%">X</th>
+                    <th width="30%">Y</th>
+                    <th width="30%">|r|</th>
+                </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+            <button class="btn btn-danger" id="clearButton">Очистить</button>
+        </div>
+    </div>
+</body>
+</html>
